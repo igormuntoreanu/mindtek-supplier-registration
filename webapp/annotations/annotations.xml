@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+	<edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+		<edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+		<edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+		<edmx:Include Namespace="Org.OData.Core.V1" Alias="Core"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+		<edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+		<edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="../localService/metadata.xml">
+		<edmx:Include Namespace="mindtek.supplier" Alias="Supplier"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema Namespace="mindtek.supplier.annotations" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+			<Annotations Target="Supplier.Container/SupplierRegistrations">
+				<Annotation Term="Capabilities.SearchRestrictions">
+					<Record>
+						<PropertyValue Property="Searchable" Bool="true"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.InsertRestrictions">
+					<Record>
+						<PropertyValue Property="Insertable" Bool="false"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.UpdateRestrictions">
+					<Record>
+						<PropertyValue Property="Updatable" Bool="false"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.DeleteRestrictions">
+					<Record>
+						<PropertyValue Property="Deletable" Bool="false"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Supplier.Container/SupplierDocuments">
+				<Annotation Term="Capabilities.InsertRestrictions">
+					<Record>
+						<PropertyValue Property="Insertable" Bool="false"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.UpdateRestrictions">
+					<Record>
+						<PropertyValue Property="Updatable" Bool="false"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.DeleteRestrictions">
+					<Record>
+						<PropertyValue Property="Deletable" Bool="false"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+
+			<Annotations Target="Supplier.SupplierRegistration/approvalStatus">
+				<Annotation Term="Common.Label" String="{@i18n>approvalStatus}"/>
+				<Annotation Term="UI.Criticality" Path="approvalCriticality"/>
+				<Annotation Term="Common.ValueList">
+					<Record>
+						<PropertyValue Property="CollectionPath" String="ApprovalStatuses"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="approvalStatus"/>
+									<PropertyValue Property="ValueListProperty" String="name"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/riskClassification">
+				<Annotation Term="Common.Label" String="{@i18n>riskClassification}"/>
+				<Annotation Term="UI.Criticality" Path="riskCriticality"/>
+				<Annotation Term="Common.ValueList">
+					<Record>
+						<PropertyValue Property="CollectionPath" String="RiskClassifications"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="riskClassification"/>
+									<PropertyValue Property="ValueListProperty" String="name"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/lastAuditDate">
+				<Annotation Term="Common.Label" String="{@i18n>lastAuditDate}"/>
+				<Annotation Term="UI.Criticality" Path="auditCriticality"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/companyName">
+				<Annotation Term="Common.Label" String="{@i18n>companyName}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/industry">
+				<Annotation Term="Common.Label" String="{@i18n>industry}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/headline">
+				<Annotation Term="Common.Label" String="{@i18n>industry}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/website">
+				<Annotation Term="Common.Label" String="{@i18n>website}"/>
+				<Annotation Term="Core.IsURL" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/profileCompleteness">
+				<Annotation Term="Common.Label" String="{@i18n>profileCompleteness}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/profileCriticality">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/logoUrl">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/registrationNumber">
+				<Annotation Term="Common.Label" String="{@i18n>registrationNumber}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/addressLine">
+				<Annotation Term="Common.Label" String="{@i18n>address}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/street">
+				<Annotation Term="Common.Label" String="{@i18n>street}"/>
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/city">
+				<Annotation Term="Common.Label" String="{@i18n>city}"/>
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/postalCode">
+				<Annotation Term="Common.Label" String="{@i18n>postalCode}"/>
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/country">
+				<Annotation Term="Common.Label" String="{@i18n>country}"/>
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/contactName">
+				<Annotation Term="Common.Label" String="{@i18n>contactName}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/contactEmail">
+				<Annotation Term="Common.Label" String="{@i18n>contactEmail}"/>
+				<Annotation Term="Communication.IsEmailAddress" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/contactPhone">
+				<Annotation Term="Common.Label" String="{@i18n>contactPhone}"/>
+				<Annotation Term="Communication.IsPhoneNumber" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/bankName">
+				<Annotation Term="Common.Label" String="{@i18n>bankName}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/accountHolder">
+				<Annotation Term="Common.Label" String="{@i18n>accountHolder}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/iban">
+				<Annotation Term="Common.Label" String="{@i18n>iban}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/bic">
+				<Annotation Term="Common.Label" String="{@i18n>bic}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/paymentCurrency">
+				<Annotation Term="Common.Label" String="{@i18n>paymentCurrency}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/paymentTerms">
+				<Annotation Term="Common.Label" String="{@i18n>paymentTerms}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/submittedOn">
+				<Annotation Term="Common.Label" String="{@i18n>submittedOn}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/reviewedBy">
+				<Annotation Term="Common.Label" String="{@i18n>reviewedBy}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/decisionNote">
+				<Annotation Term="Common.Label" String="{@i18n>decisionNote}"/>
+				<Annotation Term="UI.MultiLineText" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/auditBody">
+				<Annotation Term="Common.Label" String="{@i18n>auditBody}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/nextReviewDate">
+				<Annotation Term="Common.Label" String="{@i18n>nextReviewDate}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/complianceNote">
+				<Annotation Term="Common.Label" String="{@i18n>complianceNote}"/>
+				<Annotation Term="UI.MultiLineText" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/approvalCriticality">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/riskCriticality">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/auditCriticality">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/articlesFileName">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/articlesMediaType">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/taxFileName">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/taxMediaType">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/isoFileName">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/isoMediaType">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/logoFileName">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/logoMediaType">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+
+			<Annotations Target="Supplier.SupplierRegistration/articlesOfIncorporation">
+				<Annotation Term="Common.Label" String="{@i18n>articlesOfIncorporation}"/>
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/ReadOnly"/>
+				<Annotation Term="Core.MediaType" Path="articlesMediaType"/>
+				<Annotation Term="Core.ContentDisposition">
+					<Record>
+						<PropertyValue Property="Filename" Path="articlesFileName"/>
+						<PropertyValue Property="Type" String="inline"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.IsImage" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/taxCertificate">
+				<Annotation Term="Common.Label" String="{@i18n>taxCertificate}"/>
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/ReadOnly"/>
+				<Annotation Term="Core.MediaType" Path="taxMediaType"/>
+				<Annotation Term="Core.ContentDisposition">
+					<Record>
+						<PropertyValue Property="Filename" Path="taxFileName"/>
+						<PropertyValue Property="Type" String="inline"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.IsImage" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/isoCertification">
+				<Annotation Term="Common.Label" String="{@i18n>isoCertification}"/>
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/ReadOnly"/>
+				<Annotation Term="Core.MediaType" Path="isoMediaType"/>
+				<Annotation Term="Core.ContentDisposition">
+					<Record>
+						<PropertyValue Property="Filename" Path="isoFileName"/>
+						<PropertyValue Property="Type" String="inline"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.IsImage" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierRegistration/companyLogo">
+				<Annotation Term="Common.Label" String="{@i18n>companyLogo}"/>
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/ReadOnly"/>
+				<Annotation Term="Core.MediaType" Path="logoMediaType"/>
+				<Annotation Term="Core.ContentDisposition">
+					<Record>
+						<PropertyValue Property="Filename" Path="logoFileName"/>
+						<PropertyValue Property="Type" String="inline"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.IsImage" Bool="true"/>
+			</Annotations>
+
+			<Annotations Target="Supplier.SupplierDocument">
+				<Annotation Term="UI.MediaResource">
+					<Record Type="UI.MediaResourceType">
+						<PropertyValue Property="Url" Path="content"/>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="fileName"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record>
+						<PropertyValue Property="TypeName" String="{@i18n>document}"/>
+						<PropertyValue Property="TypeNamePlural" String="{@i18n>documents}"/>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="documentType"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="documentType"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="formatLabel"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="fileName"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="validUntil"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierDocument/documentType">
+				<Annotation Term="Common.Label" String="{@i18n>documentType}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierDocument/fileName">
+				<Annotation Term="Common.Label" String="{@i18n>fileName}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierDocument/validUntil">
+				<Annotation Term="Common.Label" String="{@i18n>validUntil}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierDocument/mediaType">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierDocument/registrationId">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierDocument/formatLabel">
+				<Annotation Term="Common.Label" String="{@i18n>format}"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierDocument/fileKind">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Supplier.SupplierDocument/content">
+				<Annotation Term="Common.Label" String="{@i18n>preview}"/>
+				<Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/ReadOnly"/>
+				<Annotation Term="Core.MediaType" Path="mediaType"/>
+				<Annotation Term="Core.ContentDisposition">
+					<Record>
+						<PropertyValue Property="Filename" Path="fileName"/>
+						<PropertyValue Property="Type" String="inline"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+
+			<Annotations Target="Supplier.SupplierRegistration">
+				<Annotation Term="UI.HeaderInfo">
+					<Record>
+						<PropertyValue Property="TypeName" String="{@i18n>supplierRegistration}"/>
+						<PropertyValue Property="TypeNamePlural" String="{@i18n>supplierRegistrations}"/>
+						<PropertyValue Property="ImageUrl" Path="logoUrl"/>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="companyName"/>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="Description">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="headline"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="companyName"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="registrationNumber"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="ApprovalStatus">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Title" String="{@i18n>approvalStatus}"/>
+						<PropertyValue Property="Value" Path="approvalStatus"/>
+						<PropertyValue Property="Criticality" Path="approvalCriticality"/>
+						<PropertyValue Property="CriticalityRepresentation" EnumMember="UI.CriticalityRepresentationType/WithIcon"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="RiskClassification">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Title" String="{@i18n>riskClassification}"/>
+						<PropertyValue Property="Value" Path="riskClassification"/>
+						<PropertyValue Property="Criticality" Path="riskCriticality"/>
+						<PropertyValue Property="CriticalityRepresentation" EnumMember="UI.CriticalityRepresentationType/WithIcon"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="LastAudit">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Title" String="{@i18n>lastAuditDate}"/>
+						<PropertyValue Property="Value" Path="lastAuditDate"/>
+						<PropertyValue Property="Criticality" Path="auditCriticality"/>
+						<PropertyValue Property="CriticalityRepresentation" EnumMember="UI.CriticalityRepresentationType/WithIcon"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="Profile">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Title" String="{@i18n>profileCompleteness}"/>
+						<PropertyValue Property="Description" String="{@i18n>profileDescription}"/>
+						<PropertyValue Property="Value" Path="profileCompleteness"/>
+						<PropertyValue Property="TargetValue" Decimal="100"/>
+						<PropertyValue Property="Visualization" EnumMember="UI.VisualizationType/Progress"/>
+						<PropertyValue Property="Criticality" Path="profileCriticality"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderFacets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="ID" String="ApprovalStatusFacet"/>
+							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#ApprovalStatus"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="ID" String="RiskFacet"/>
+							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#RiskClassification"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="ID" String="ProfileFacet"/>
+							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#Profile"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="ID" String="LastAuditFacet"/>
+							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#LastAudit"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="General">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="industry"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="registrationNumber"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="addressLine"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+								</Record>
+								<Record Type="UI.DataFieldWithUrl">
+									<PropertyValue Property="Label" String="{@i18n>website}"/>
+									<PropertyValue Property="Value" Path="website"/>
+									<PropertyValue Property="Url" Path="website"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="contactName"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="contactEmail"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="contactPhone"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="Banking">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="bankName"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="accountHolder"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="iban"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="bic"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="paymentCurrency"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="paymentTerms"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="Approval">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="approvalStatus"/>
+									<PropertyValue Property="Criticality" Path="approvalCriticality"/>
+								</Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="submittedOn"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="reviewedBy"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="decisionNote"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="Compliance">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="riskClassification"/>
+									<PropertyValue Property="Criticality" Path="riskCriticality"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="lastAuditDate"/>
+									<PropertyValue Property="Criticality" Path="auditCriticality"/>
+								</Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="auditBody"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="nextReviewDate"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="complianceNote"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="DocumentPreviews">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="articlesOfIncorporation"/>
+									<PropertyValue Property="Label" String="{@i18n>articlesOfIncorporation}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="taxCertificate"/>
+									<PropertyValue Property="Label" String="{@i18n>taxCertificate}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="isoCertification"/>
+									<PropertyValue Property="Label" String="{@i18n>isoCertification}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="companyLogo"/>
+									<PropertyValue Property="Label" String="{@i18n>companyLogo}"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.MediaResource" Qualifier="Articles">
+					<Record Type="UI.MediaResourceType">
+						<PropertyValue Property="Url" Path="articlesOfIncorporation"/>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="articlesFileName"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.MediaResource" Qualifier="Tax">
+					<Record Type="UI.MediaResourceType">
+						<PropertyValue Property="Url" Path="taxCertificate"/>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="taxFileName"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.MediaResource" Qualifier="Iso">
+					<Record Type="UI.MediaResourceType">
+						<PropertyValue Property="Url" Path="isoCertification"/>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="isoFileName"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.MediaResource" Qualifier="Logo">
+					<Record Type="UI.MediaResourceType">
+						<PropertyValue Property="Url" Path="companyLogo"/>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="logoFileName"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="ID" String="General"/>
+							<PropertyValue Property="Label" String="{@i18n>company}"/>
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#General"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="ID" String="Banking"/>
+							<PropertyValue Property="Label" String="{@i18n>payment}"/>
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Banking"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="ID" String="Approval"/>
+							<PropertyValue Property="Label" String="{@i18n>decision}"/>
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Approval"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="ID" String="Compliance"/>
+							<PropertyValue Property="Label" String="{@i18n>compliance}"/>
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Compliance"/>
+						</Record>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="ID" String="Documents"/>
+							<PropertyValue Property="Label" String="{@i18n>documents}"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="ID" String="DocumentPreviews"/>
+										<PropertyValue Property="Label" String="{@i18n>certificatesAndLogo}"/>
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#DocumentPreviews"/>
+									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="ID" String="AdditionalDocuments"/>
+										<PropertyValue Property="Label" String="{@i18n>additionalDocuments}"/>
+										<PropertyValue Property="Target" AnnotationPath="documents/@UI.LineItem"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,137 @@
+[
+	{
+		"ID": "DOC-01",
+		"registrationId": "SR-1001",
+		"documentType": "Public liability insurance",
+		"fileName": "Helvetia-Motion-liability-insurance.png",
+		"mediaType": "image/png",
+		"validUntil": "2027-03-31",
+		"previewFile": "helvetia-insurance.png"
+	},
+	{
+		"ID": "DOC-02",
+		"registrationId": "SR-1001",
+		"documentType": "Bank confirmation",
+		"fileName": "Helvetia-Motion-bank-confirmation.png",
+		"mediaType": "image/png",
+		"validUntil": "2026-12-31",
+		"previewFile": "helvetia-bank.png"
+	},
+	{
+		"ID": "DOC-03",
+		"registrationId": "SR-1002",
+		"documentType": "Public liability insurance",
+		"fileName": "Northsea-Components-liability-insurance.png",
+		"mediaType": "image/png",
+		"validUntil": "2026-11-30",
+		"previewFile": "northsea-insurance.png"
+	},
+	{
+		"ID": "DOC-04",
+		"registrationId": "SR-1002",
+		"documentType": "Beneficial ownership",
+		"fileName": "Northsea-Components-beneficial-ownership.png",
+		"mediaType": "image/png",
+		"validUntil": "2026-10-31",
+		"previewFile": "northsea-ownership.png"
+	},
+	{
+		"ID": "DOC-05",
+		"registrationId": "SR-1003",
+		"documentType": "Public liability insurance",
+		"fileName": "Serra-Verde-liability-insurance.png",
+		"mediaType": "image/png",
+		"validUntil": "2026-06-30",
+		"previewFile": "serra-insurance.png"
+	},
+	{
+		"ID": "DOC-06",
+		"registrationId": "SR-1004",
+		"documentType": "Environmental licence",
+		"fileName": "Baltic-Forge-environmental-licence.png",
+		"mediaType": "image/png",
+		"validUntil": "2022-09-30",
+		"previewFile": "baltic-environment.png"
+	},
+	{
+		"ID": "DOC-07",
+		"registrationId": "SR-1005",
+		"documentType": "Public liability insurance",
+		"fileName": "Rheinwerk-Praezision-liability-insurance.png",
+		"mediaType": "image/png",
+		"validUntil": "2027-06-30",
+		"previewFile": "rheinwerk-insurance.png"
+	},
+	{
+		"ID": "DOC-08",
+		"registrationId": "SR-1005",
+		"documentType": "Bank confirmation",
+		"fileName": "Rheinwerk-Praezision-bank-confirmation.png",
+		"mediaType": "image/png",
+		"validUntil": "2026-12-31",
+		"previewFile": "rheinwerk-bank.png"
+	},
+	{
+		"ID": "DOC-09",
+		"registrationId": "SR-1006",
+		"documentType": "Public liability insurance",
+		"fileName": "Atlas-Harbour-liability-insurance.png",
+		"mediaType": "image/png",
+		"validUntil": "2026-10-31",
+		"previewFile": "atlas-insurance.png"
+	},
+	{
+		"ID": "DOC-10",
+		"registrationId": "SR-1007",
+		"documentType": "Public liability insurance",
+		"fileName": "Cerrado-Alimentos-liability-insurance.png",
+		"mediaType": "image/png",
+		"validUntil": "2027-01-31",
+		"previewFile": "cerrado-insurance.png"
+	},
+	{
+		"ID": "DOC-11",
+		"registrationId": "SR-1007",
+		"documentType": "Environmental licence",
+		"fileName": "Cerrado-Alimentos-environmental-licence.png",
+		"mediaType": "image/png",
+		"validUntil": "2027-08-28",
+		"previewFile": "cerrado-environment.png"
+	},
+	{
+		"ID": "DOC-12",
+		"registrationId": "SR-1007",
+		"documentType": "Bank confirmation",
+		"fileName": "Cerrado-Alimentos-bank-confirmation.png",
+		"mediaType": "image/png",
+		"validUntil": "2026-12-31",
+		"previewFile": "cerrado-bank.png"
+	},
+	{
+		"ID": "DOC-13",
+		"registrationId": "SR-1001",
+		"documentType": "Supply agreement",
+		"fileName": "Helvetia-Motion-supply-agreement.pdf",
+		"mediaType": "application/pdf",
+		"validUntil": "2027-12-31",
+		"previewFile": "helvetia-supply-agreement.pdf"
+	},
+	{
+		"ID": "DOC-14",
+		"registrationId": "SR-1001",
+		"documentType": "Quality terms",
+		"fileName": "Helvetia-Motion-quality-terms.docx",
+		"mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+		"validUntil": "2027-12-31",
+		"previewFile": "helvetia-quality-terms.docx"
+	},
+	{
+		"ID": "DOC-15",
+		"registrationId": "SR-1001",
+		"documentType": "Price list",
+		"fileName": "Helvetia-Motion-price-list.xlsx",
+		"mediaType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+		"validUntil": "2026-12-31",
+		"previewFile": "helvetia-price-list.xlsx"
+	}
+]

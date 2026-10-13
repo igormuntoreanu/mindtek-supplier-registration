@@ -1,0 +1,198 @@
+{
+	"_version": "1.76.0",
+	"sap.app": {
+		"id": "mindtek.supplier.registration",
+		"type": "application",
+		"i18n": {
+			"bundleUrl": "i18n/i18n.properties",
+			"supportedLocales": ["", "en", "en_GB"],
+			"fallbackLocale": ""
+		},
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata4/sap/supplier_registration/srvd/sap/supplierregistration/0001/",
+				"type": "OData",
+				"settings": {
+					"annotations": ["annotation"],
+					"odataVersion": "4.0",
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"annotation": {
+				"type": "ODataAnnotation",
+				"uri": "annotations/annotations.xml",
+				"settings": {
+					"localUri": "annotations/annotations.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://supplier"
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"fullWidth": true
+	},
+	"sap.ui5": {
+		"flexEnabled": true,
+		"dependencies": {
+			"minUI5Version": "1.136.0",
+			"libs": {
+				"sap.fe.templates": {},
+				"sap.fe.core": {},
+				"sap.m": {},
+				"sap.ui.core": {},
+				"sap.f": {},
+				"sap.ui.layout": {},
+				"sap.ui.mdc": {},
+				"sap.ushell": {},
+				"sap.ui.fl": {},
+				"sap.ui.unified": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"extends": {
+			"extensions": {
+				"sap.ui.controllerExtensions": {
+					"sap.fe.templates.ObjectPage.ObjectPageController": {
+						"controllerName": "mindtek.supplier.registration.ext.controller.ObjectPageExt"
+					}
+				}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "mindtek.supplier.registration.i18n.i18n",
+					"supportedLocales": ["", "en", "en_GB"],
+					"fallbackLocale": ""
+				}
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "mindtek.supplier.registration.i18n.i18n",
+					"supportedLocales": ["", "en", "en_GB"],
+					"fallbackLocale": ""
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true,
+				"settings": {
+					"synchronizationMode": "None",
+					"operationMode": "Server",
+					"autoExpandSelect": true,
+					"earlyRequests": true,
+					"groupId": "$auto"
+				}
+			}
+		},
+		"routing": {
+			"routes": [
+				{
+					"pattern": "SupplierRegistrations({key}):?query:",
+					"name": "SupplierRegistrationsObjectPage",
+					"target": "SupplierRegistrationsObjectPage"
+				}
+			],
+			"targets": {
+				"SupplierRegistrationsObjectPage": {
+					"type": "Component",
+					"id": "SupplierRegistrationsObjectPage",
+					"name": "sap.fe.templates.ObjectPage",
+					"options": {
+						"settings": {
+							"contextPath": "/SupplierRegistrations",
+							"editableHeaderContent": false,
+							"variantManagement": "None",
+							"sectionLayout": "Page",
+							"content": {
+								"body": {
+									"sections": {
+										"Location": {
+											"type": "XMLFragment",
+											"template": "mindtek.supplier.registration.ext.fragment.Location",
+											"title": "{i18n>location}",
+											"id": "Location",
+											"position": {
+												"placement": "After",
+												"anchor": "General"
+											}
+										},
+										"Documents": {
+											"subSections": {
+												"DocumentUpload": {
+													"type": "XMLFragment",
+													"template": "mindtek.supplier.registration.ext.fragment.DocumentUpload",
+													"title": "{i18n>upload}",
+													"position": {
+														"placement": "Before",
+														"anchor": "AdditionalDocuments"
+													}
+												}
+											}
+										},
+										"DocumentPreview": {
+											"type": "XMLFragment",
+											"template": "mindtek.supplier.registration.ext.fragment.DocumentPreview",
+											"title": "{i18n>documentPreview}",
+											"id": "DocumentPreview",
+											"position": {
+												"placement": "After",
+												"anchor": "Documents"
+											}
+										}
+									}
+								}
+							},
+							"controlConfiguration": {
+								"@com.sap.vocabularies.UI.v1.FieldGroup#General": {
+									"columns": 2
+								},
+								"@com.sap.vocabularies.UI.v1.FieldGroup#Banking": {
+									"columns": 2
+								},
+								"@com.sap.vocabularies.UI.v1.FieldGroup#Approval": {
+									"columns": 2
+								},
+								"@com.sap.vocabularies.UI.v1.FieldGroup#Compliance": {
+									"columns": 2
+								},
+								"@com.sap.vocabularies.UI.v1.FieldGroup#DocumentPreviews": {
+									"columns": 2
+								},
+								"documents/@com.sap.vocabularies.UI.v1.LineItem": {
+									"tableSettings": {
+										"type": "ResponsiveTable",
+										"selectionMode": "Single",
+										"enableExport": false
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"sap.fiori": {
+		"registrationIds": [],
+		"archeType": "transactional"
+	}
+}

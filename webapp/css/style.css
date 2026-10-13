@@ -1,0 +1,146 @@
+html,
+body,
+#content {
+	height: 100%;
+	margin: 0;
+}
+
+.supplierLocationMap {
+	height: 22rem;
+	width: 100%;
+	border-radius: 0.75rem;
+	z-index: 0;
+}
+
+[id*="DocumentPreviews"] .sapFAvatar {
+	cursor: pointer;
+	transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+[id*="DocumentPreviews"] .sapFAvatar:hover {
+	transform: scale(1.06);
+}
+
+[id*="DocumentPreviews"] .sapFAvatar.supplierCertificateSelected {
+	box-shadow: 0 0 0 2px var(--sapContent_Selected_ForegroundColor, #0064d9);
+}
+
+.supplierCertificateRow {
+	display: flex;
+	align-items: flex-start;
+	min-width: 0;
+}
+
+.supplierCertificateRow > [id*="DocumentPreviews"] {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.supplierCertificateHost {
+	flex: 0 0 0px;
+	width: 0;
+	max-width: 0;
+	min-width: 0;
+	opacity: 0;
+	overflow: hidden;
+	margin-left: 0;
+	border-radius: 1rem;
+	background: var(--sapGroup_ContentBackground, #fff);
+	box-shadow: var(--sapContent_Shadow1, 0 0.125rem 0.5rem rgba(34, 53, 72, 0.16));
+	transition:
+		flex-basis 460ms cubic-bezier(0.22, 1, 0.36, 1),
+		max-width 460ms cubic-bezier(0.22, 1, 0.36, 1),
+		opacity 280ms ease,
+		margin-left 460ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.supplierCertificateHost.isOpen {
+	flex: 1 1 32rem;
+	width: auto;
+	max-width: none;
+	opacity: 1;
+	margin-left: 1rem;
+}
+
+.supplierCertificateStage {
+	width: 32rem;
+	max-width: 100%;
+}
+
+.supplierCertificateViewport {
+	height: 28rem;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--sapGroup_ContentBackground, #fff);
+	cursor: grab;
+	touch-action: none;
+}
+
+.supplierCertificateViewport.isDragging {
+	cursor: grabbing;
+}
+
+.supplierCertificatePicture {
+	max-width: 92%;
+	max-height: 92%;
+	object-fit: contain;
+	transform-origin: center center;
+	transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+	user-select: none;
+	pointer-events: none;
+}
+
+.supplierCertificatePicture.isInstant {
+	transition: none;
+}
+
+.supplierCertificateGhost {
+	position: fixed;
+	z-index: 20;
+	object-fit: contain;
+	pointer-events: none;
+	border-radius: 0.75rem;
+	background: var(--sapGroup_ContentBackground, #fff);
+	box-shadow: 0 1rem 2.5rem rgba(34, 53, 72, 0.18);
+	transition:
+		left 460ms cubic-bezier(0.22, 1, 0.36, 1),
+		top 460ms cubic-bezier(0.22, 1, 0.36, 1),
+		width 460ms cubic-bezier(0.22, 1, 0.36, 1),
+		height 460ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.supplierCertificateHost,
+	.supplierCertificatePicture,
+	.supplierCertificateGhost,
+	[id*="DocumentPreviews"] .sapFAvatar {
+		transition: none;
+	}
+}
+
+.supplierPdfPages {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	box-sizing: border-box;
+	min-height: 32rem;
+	padding: 1rem;
+	background: #525659;
+}
+
+.supplierPdfPage {
+	max-width: 100%;
+	height: auto;
+	background: #fff;
+	box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.28);
+}
+
+.supplierPreviewFrame {
+	width: 100%;
+	height: 32rem;
+	border: 0;
+	background: #fff;
+}

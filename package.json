@@ -1,0 +1,15 @@
+{
+	"name": "mindtek-supplier-registration",
+	"version": "1.0.0",
+	"description": "Fiori elements Object Page for supplier registration",
+	"private": true,
+	"scripts": {
+		"start": "ui5 serve --port 8085 --open index.html",
+		"generate-previews": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/generate-previews.ps1",
+		"generate-office-samples": "node scripts/generate-office-samples.js"
+	},
+	"devDependencies": {
+		"@ui5/cli": "^3.9.0",
+		"ui5-middleware-livereload": "^3.4.0"
+	}
+}

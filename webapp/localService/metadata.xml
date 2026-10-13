@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+	<edmx:DataServices>
+		<Schema Namespace="mindtek.supplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+			<EntityType Name="SupplierRegistration">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="20"/>
+				<Property Name="companyName" Type="Edm.String" Nullable="false" MaxLength="120"/>
+				<Property Name="industry" Type="Edm.String" MaxLength="80"/>
+				<Property Name="headline" Type="Edm.String" MaxLength="160"/>
+				<Property Name="website" Type="Edm.String" MaxLength="180"/>
+				<Property Name="profileCompleteness" Type="Edm.Byte"/>
+				<Property Name="profileCriticality" Type="Edm.Int16"/>
+				<Property Name="logoUrl" Type="Edm.String" MaxLength="500"/>
+				<Property Name="registrationNumber" Type="Edm.String" MaxLength="40"/>
+				<Property Name="addressLine" Type="Edm.String" MaxLength="240"/>
+				<Property Name="latitude" Type="Edm.Double"/>
+				<Property Name="longitude" Type="Edm.Double"/>
+				<Property Name="street" Type="Edm.String" MaxLength="160"/>
+				<Property Name="city" Type="Edm.String" MaxLength="80"/>
+				<Property Name="postalCode" Type="Edm.String" MaxLength="16"/>
+				<Property Name="country" Type="Edm.String" MaxLength="3"/>
+				<Property Name="contactName" Type="Edm.String" MaxLength="80"/>
+				<Property Name="contactEmail" Type="Edm.String" MaxLength="120"/>
+				<Property Name="contactPhone" Type="Edm.String" MaxLength="40"/>
+				<Property Name="bankName" Type="Edm.String" MaxLength="120"/>
+				<Property Name="accountHolder" Type="Edm.String" MaxLength="120"/>
+				<Property Name="iban" Type="Edm.String" MaxLength="42"/>
+				<Property Name="bic" Type="Edm.String" MaxLength="11"/>
+				<Property Name="paymentCurrency" Type="Edm.String" MaxLength="3"/>
+				<Property Name="paymentTerms" Type="Edm.String" MaxLength="40"/>
+				<Property Name="approvalStatus" Type="Edm.String" MaxLength="20"/>
+				<Property Name="approvalCriticality" Type="Edm.Int16"/>
+				<Property Name="submittedOn" Type="Edm.Date"/>
+				<Property Name="reviewedBy" Type="Edm.String" MaxLength="80"/>
+				<Property Name="decisionNote" Type="Edm.String" MaxLength="500"/>
+				<Property Name="riskClassification" Type="Edm.String" MaxLength="20"/>
+				<Property Name="riskCriticality" Type="Edm.Int16"/>
+				<Property Name="lastAuditDate" Type="Edm.Date"/>
+				<Property Name="auditCriticality" Type="Edm.Int16"/>
+				<Property Name="auditBody" Type="Edm.String" MaxLength="80"/>
+				<Property Name="nextReviewDate" Type="Edm.Date"/>
+				<Property Name="complianceNote" Type="Edm.String" MaxLength="1000"/>
+				<Property Name="articlesFileName" Type="Edm.String" MaxLength="255"/>
+				<Property Name="articlesMediaType" Type="Edm.String" MaxLength="100"/>
+				<Property Name="articlesOfIncorporation" Type="Edm.Stream"/>
+				<Property Name="taxFileName" Type="Edm.String" MaxLength="255"/>
+				<Property Name="taxMediaType" Type="Edm.String" MaxLength="100"/>
+				<Property Name="taxCertificate" Type="Edm.Stream"/>
+				<Property Name="isoFileName" Type="Edm.String" MaxLength="255"/>
+				<Property Name="isoMediaType" Type="Edm.String" MaxLength="100"/>
+				<Property Name="isoCertification" Type="Edm.Stream"/>
+				<Property Name="logoFileName" Type="Edm.String" MaxLength="255"/>
+				<Property Name="logoMediaType" Type="Edm.String" MaxLength="100"/>
+				<Property Name="companyLogo" Type="Edm.Stream"/>
+				<NavigationProperty Name="documents" Type="Collection(mindtek.supplier.SupplierDocument)" Partner="registration"/>
+			</EntityType>
+			<EntityType Name="SupplierDocument">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="20"/>
+				<Property Name="registrationId" Type="Edm.String" Nullable="false" MaxLength="20"/>
+				<Property Name="documentType" Type="Edm.String" MaxLength="80"/>
+				<Property Name="fileName" Type="Edm.String" MaxLength="255"/>
+				<Property Name="mediaType" Type="Edm.String" MaxLength="100"/>
+				<Property Name="formatLabel" Type="Edm.String" MaxLength="20"/>
+				<Property Name="fileKind" Type="Edm.String" MaxLength="20"/>
+				<Property Name="content" Type="Edm.Stream"/>
+				<Property Name="validUntil" Type="Edm.Date"/>
+				<NavigationProperty Name="registration" Type="mindtek.supplier.SupplierRegistration" Nullable="false" Partner="documents">
+					<ReferentialConstraint Property="registrationId" ReferencedProperty="ID"/>
+				</NavigationProperty>
+			</EntityType>
+			<EntityType Name="ApprovalStatus">
+				<Key>
+					<PropertyRef Name="code"/>
+				</Key>
+				<Property Name="code" Type="Edm.String" Nullable="false" MaxLength="20"/>
+				<Property Name="name" Type="Edm.String" Nullable="false" MaxLength="40"/>
+			</EntityType>
+			<EntityType Name="RiskClassification">
+				<Key>
+					<PropertyRef Name="code"/>
+				</Key>
+				<Property Name="code" Type="Edm.String" Nullable="false" MaxLength="20"/>
+				<Property Name="name" Type="Edm.String" Nullable="false" MaxLength="40"/>
+			</EntityType>
+			<EntityContainer Name="Container">
+				<EntitySet Name="SupplierRegistrations" EntityType="mindtek.supplier.SupplierRegistration">
+					<NavigationPropertyBinding Path="documents" Target="SupplierDocuments"/>
+				</EntitySet>
+				<EntitySet Name="SupplierDocuments" EntityType="mindtek.supplier.SupplierDocument">
+					<NavigationPropertyBinding Path="registration" Target="SupplierRegistrations"/>
+				</EntitySet>
+				<EntitySet Name="ApprovalStatuses" EntityType="mindtek.supplier.ApprovalStatus"/>
+				<EntitySet Name="RiskClassifications" EntityType="mindtek.supplier.RiskClassification"/>
+			</EntityContainer>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified">
+	<Toolbar id="documentUploadBar" width="100%"
+		core:require="{ handler: 'mindtek/supplier/registration/ext/DocumentPreview' }">
+		<Title text="{i18n>uploadDocument}" level="H5"/>
+		<ToolbarSpacer/>
+		<u:FileUploader
+			id="documentUploader"
+			fileType="png,jpg,jpeg,gif,webp,bmp,pdf,doc,docx,xls,xlsx"
+			mimeType="image/png,image/jpeg,image/gif,image/webp,image/bmp,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+			buttonOnly="true"
+			buttonText="{i18n>upload}"
+			icon="sap-icon://upload"
+			style="Emphasized"
+			change="handler.onUpload"/>
+	</Toolbar>
+</core:FragmentDefinition>
